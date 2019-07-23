@@ -32,6 +32,8 @@ target 'globoard2' do
 
 
 
+  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
+
   target 'globoard2Tests' do
     inherit! :search_paths
     # Pods for testing

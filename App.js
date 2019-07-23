@@ -8,8 +8,9 @@ import {
   StatusBar,
 } from 'react-native';
 
+import Checklist from './components/Checklist'
 import  BluetoothSwitch  from './components/BluetoothSwitch';
-import SplashScreen from './components/SplashScreen'
+import SplashScreen from './components/SplashScreen';
 import {
   Header,
   LearnMoreLinks,
@@ -44,14 +45,15 @@ export default class App extends Component {
           <ScrollView
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
-            {/* <Header /> */}
+            {/* <Header />
             {global.HermesInternal == null ? null : (
               <View style={styles.engine}>
                 <Text style={styles.footer}>Engine: Hermes</Text>
               </View>
-            )}
+            )} */}
             <View style={styles.body}>
             <BluetoothSwitch />
+            <Checklist />
             </View>
           </ScrollView>
         </SafeAreaView>

@@ -8,14 +8,24 @@ export default class Checklist extends Component {
     this.state={
       checkedItems: null
     }
-  };
-
+  }
 
   render() {
     return(
-      <View>
-        <Text>Are Your Performance Ready?</Text>
-        <Text>Check off the boxes below!</Text>
+      <View style={styles.container}>
+        <Text style={styles.title}>Are You Performance Ready?</Text>
+        <Text style={styles.tagline}>Check off the boxes below!</Text>
+        <View>
+          <CheckBox
+            title='Battery levels checked and charged.'
+            checked={this.state.checked}
+          />
+
+          <CheckBox
+            title='Strings tuned with tuner.' 
+            checked={this.state.checked}
+          />
+        </View>
       </View> 
     );
   }
@@ -30,4 +40,14 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginRight: 10
   },
+
+  title: {
+    fontSize: 18,
+    textAlign: 'center',
+  },
+
+  tagline: {
+    fontSize: 14,
+    textAlign: 'center'
+  }
 })
