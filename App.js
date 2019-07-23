@@ -1,5 +1,3 @@
-
-
 import React, {Fragment} from 'react';
 import {
   SafeAreaView,
@@ -28,7 +26,7 @@ const App = () => {
         <ScrollView
           contentInsetAdjustmentBehavior="automatic"
           style={styles.scrollView}>
-          <Header />
+          {/* <Header /> */}
           {global.HermesInternal == null ? null : (
             <View style={styles.engine}>
               <Text style={styles.footer}>Engine: Hermes</Text>
@@ -45,14 +43,15 @@ const App = () => {
 
 const styles = StyleSheet.create({
   scrollView: {
-    backgroundColor: Colors.lighter,
+    backgroundColor: '#4AE7CD',
   },
   engine: {
     position: 'absolute',
     right: 0,
   },
   body: {
-    backgroundColor: Colors.black,
+    backgroundColor: '#4AE7CD',
+    height: 1500,
   },
   sectionContainer: {
     marginTop: 32,
@@ -67,19 +66,19 @@ const styles = StyleSheet.create({
     marginTop: 8,
     fontSize: 18,
     fontWeight: '400',
-    color: Colors.dark,
+    color: '#5FFEE4',
   },
   highlight: {
     fontWeight: '700',
   },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+  // footer: {
+  //   color: Colors.black,
+  //   fontSize: 12,
+  //   fontWeight: '600',
+  //   padding: 4,
+  //   paddingRight: 12,
+  //   textAlign: 'right',
+  // },
 });
 
 export default App;

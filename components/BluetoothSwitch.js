@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Alert, TouchableOpacity } from "react-native";
+import { Platform, StyleSheet, Text, View, Alert, TouchableOpacity, ImageBackground } from "react-native";
 import { BleManager, Device } from "react-native-ble-plx";
 import Button from "./Button.js"
+
 type Props = {};
 
 export default class BluetoothSwitch extends Component<Props> {
@@ -122,37 +123,38 @@ export default class BluetoothSwitch extends Component<Props> {
   }
 
   render() {
+    const gradient = `linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%), repeating-linear-gradient(-115deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px), repeating-linear-gradient(115deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px)`;
+
     return (
-      <View style={styles.container}>
-       	<Text style={styles.connected}>Customize Globoard</Text>
-		    <Text style={styles.tagline}>Select a light style for your fretboard</Text>
+      <View style={styles.container}>    
+        <Text style={styles.connected}>Customize Globoard</Text>
+        <Text style={styles.tagline}>Select a light style for your fretboard</Text>
         {this.state.buttonClicked && <Text style={styles.notifications}>{this.state.messages}</Text>}
-      <View >
-        <Button onPress={() => this.writeToDevice("VA==")}>
-          LED On
-        </Button>
-        
-        <Button onPress={() => this.turnOff("Tw==")}> 
-          LED Off 
-        </Button>
+        <View >
+          <Button onPress={() => this.writeToDevice("VA==")}>
+            LED On
+          </Button>
+            
+          <Button onPress={() => this.turnOff("Tw==")}> 
+            LED Off 
+          </Button>
 
-        <Button onPress={() => this.sequentialBlink("Uw==")}>
-          Sequential Blink
-        </Button>
+          <Button onPress={() => this.sequentialBlink("Uw==")}>
+            Sequential Blink
+          </Button>
 
-        <Button onPress={() => this.alternatingBlink("UAo=")}>
-          Alternating Blink
-        </Button>
-        
-        <Button onPress={() => this.shimmer("SQ==")}>
-          Shimmer
-        </Button>
+          <Button onPress={() => this.alternatingBlink("UAo=")}>
+            Alternating Blink
+          </Button>
+            
+          <Button onPress={() => this.shimmer("SQ==")}>
+            Shimmer
+          </Button>
 
-        <Button onPress={() => this.props.navigation.navigate('Home')}>
-          Performance Ready?
-        </Button>
-        
-      </View>
+          <Button onPress={() => this.props.navigation.navigate('Home')}>
+            Performance Ready?
+          </Button>
+        </View>
 	  </View>
     );
   }
@@ -180,10 +182,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     margin: 10
   },
+
   button: {
     backgroundColor: "#FE434C",
 	  fontSize: 20,
   },
+  
   notifications: {
     textAlign: "center",
     backgroundColor: '#ffffff',
