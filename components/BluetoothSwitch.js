@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View, Alert, TouchableOpacity, ImageBackground } from "react-native";
 import { BleManager, Device } from "react-native-ble-plx";
 import Button from "./Button.js"
+import CheckList from "./Checklist"
 
 type Props = {};
 
@@ -14,9 +15,10 @@ export default class BluetoothSwitch extends Component<Props> {
       device: null,
       buttonClicked: false,
       messages: [],
-      performanceChecklist: null,
-
-  };
+      showList: false,
+    };
+    
+    this.onButtonClick = this.onButtonClick.bind(this);
     let connected = false;
   }
 
@@ -123,6 +125,10 @@ export default class BluetoothSwitch extends Component<Props> {
     this.setState({messages: message})
   }
 
+  onButtonClick() {
+    this.setState({ showList: true })
+  }
+
   render() {
     const gradient = `linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%), repeating-linear-gradient(-115deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px), repeating-linear-gradient(115deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px)`;
 
@@ -152,9 +158,10 @@ export default class BluetoothSwitch extends Component<Props> {
             Shimmer
           </Button>
 
-          <Button>
+          <Button onPress={this.onButtonClick}>
             Performance Ready?
           </Button>
+          {this.state.showList ? <CheckList /> : null}
         </View>
 	  </View>
     );

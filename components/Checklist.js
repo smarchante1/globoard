@@ -44,10 +44,12 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 18,
     textAlign: 'center',
+    color: '#ffffff'
   },
 
   tagline: {
     fontSize: 14,
-    textAlign: 'center'
+    textAlign: 'center',
+    color: '#ffffff'
   }
 })

@@ -53,7 +53,6 @@ export default class App extends Component {
             )} */}
             <View style={styles.body}>
             <BluetoothSwitch />
-            <Checklist />
             </View>
           </ScrollView>
         </SafeAreaView>
