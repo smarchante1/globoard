@@ -14,6 +14,7 @@ export default class BluetoothSwitch extends Component<Props> {
       device: null,
       buttonClicked: false,
       messages: [],
+      performanceChecklist: null,
 
   };
     let connected = false;
@@ -151,7 +152,7 @@ export default class BluetoothSwitch extends Component<Props> {
             Shimmer
           </Button>
 
-          <Button onPress={() => this.props.navigation.navigate('Home')}>
+          <Button>
             Performance Ready?
           </Button>
         </View>
