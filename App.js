@@ -1,4 +1,4 @@
-import React, {Fragment} from 'react';
+import React, {Fragment, Component} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 
 import  BluetoothSwitch  from './components/BluetoothSwitch';
-
+import SplashScreen from './components/SplashScreen'
 import {
   Header,
   LearnMoreLinks,
@@ -18,27 +18,46 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const App = () => {
-  return (
-    <Fragment>
-      <StatusBar barStyle="dark-content" />
-      <SafeAreaView>
-        <ScrollView
-          contentInsetAdjustmentBehavior="automatic"
-          style={styles.scrollView}>
-          {/* <Header /> */}
-          {global.HermesInternal == null ? null : (
-            <View style={styles.engine}>
-              <Text style={styles.footer}>Engine: Hermes</Text>
+export default class App extends Component {
+   constructor(props) {
+    super(props);
+    this.state={
+      isLoading: true,
+    };
+   }
+
+  onButtonPress = () => {
+    this.setState({
+      isLoading: false,
+    });
+  }
+
+  render() {
+    // if (this.state.isLoading) {
+    //   return <SplashScreen />;
+    // }
+
+    return (
+      <Fragment>
+        <StatusBar barStyle="dark-content" />
+        <SafeAreaView>
+          <ScrollView
+            contentInsetAdjustmentBehavior="automatic"
+            style={styles.scrollView}>
+            {/* <Header /> */}
+            {global.HermesInternal == null ? null : (
+              <View style={styles.engine}>
+                <Text style={styles.footer}>Engine: Hermes</Text>
+              </View>
+            )}
+            <View style={styles.body}>
+            <BluetoothSwitch />
             </View>
-          )}
-          <View style={styles.body}>
-           <BluetoothSwitch />
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </Fragment>
-  );
+          </ScrollView>
+        </SafeAreaView>
+      </Fragment>
+    );
+  }
 };
 
 const styles = StyleSheet.create({
@@ -71,14 +90,6 @@ const styles = StyleSheet.create({
   highlight: {
     fontWeight: '700',
   },
-  // footer: {
-  //   color: Colors.black,
-  //   fontSize: 12,
-  //   fontWeight: '600',
-  //   padding: 4,
-  //   paddingRight: 12,
-  //   textAlign: 'right',
-  // },
+
 });
 
-export default App;
