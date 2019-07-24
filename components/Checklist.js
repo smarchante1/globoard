@@ -11,7 +11,6 @@ export default class Checklist extends Component {
       checked2: false,
       checked3: false,
       checked4: false,
-
     }
   }
 
