@@ -19,10 +19,21 @@ export default class Checklist extends Component {
           <CheckBox
             title='Battery levels checked and charged.'
             checked={this.state.checked}
+            onPress={() => this.setState({checked: !this.state.checked})}
           />
 
           <CheckBox
             title='Strings tuned with tuner.' 
+            checked={this.state.checked}
+          />
+
+          <CheckBox
+            title='Sound test done.' 
+            checked={this.state.checked}
+          />
+
+          <CheckBox
+            title='Cable wrapped securely inside of strap.' 
             checked={this.state.checked}
           />
         </View>

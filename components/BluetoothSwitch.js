@@ -126,7 +126,9 @@ export default class BluetoothSwitch extends Component<Props> {
   }
 
   onButtonClick() {
-    this.setState({ showList: true })
+    this.setState(prevState => ({
+      showList: !prevState.showList
+    }));
   }
 
   render() {
@@ -157,10 +159,11 @@ export default class BluetoothSwitch extends Component<Props> {
           <Button onPress={() => this.shimmer("SQ==")}>
             Shimmer
           </Button>
-
-          <Button onPress={this.onButtonClick}>
-            Performance Ready?
-          </Button>
+          <TouchableOpacity>
+            <Text style={styles.listTrigger} onPress={this.onButtonClick}>
+              Performance CheckList
+            </Text>
+          </TouchableOpacity>
           {this.state.showList ? <CheckList /> : null}
         </View>
 	  </View>
@@ -176,6 +179,12 @@ const styles = StyleSheet.create({
 	  marginTop: 50,
     marginLeft: 10,
     marginRight: 10
+  },
+
+  listTrigger: {
+    textAlign: 'center',
+    fontSize: 18,
+    color: '#BA4AE7'
   },
 
   tagline: {
