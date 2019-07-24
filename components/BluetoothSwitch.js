@@ -96,7 +96,7 @@ export default class BluetoothSwitch extends Component<Props> {
   turnOff(val) {
     this.cha.writeWithoutResponse(val).catch(err => {
 	  console.log("Could not turn off leds")
-	});
+	  });
     let message = "LED's turned off"
     this.setState({messages: message})
   }
@@ -160,11 +160,13 @@ export default class BluetoothSwitch extends Component<Props> {
           <Button onPress={() => this.shimmer("SQ==")}>
             Shimmer
           </Button>
+
           <TouchableOpacity>
             <Text style={styles.listTrigger} onPress={this.onButtonClick}>
-              Performance CheckList
+              Performance Check List
             </Text>
           </TouchableOpacity>
+
           {this.state.showList ? <CheckList /> : null}
         </View>
         
@@ -194,7 +196,7 @@ const styles = StyleSheet.create({
   tagline: {
     textAlign: "center",
 	  paddingBottom: 30, 
-    color: '#ffffff'
+    color: '#BA4AE7'
   },
 
   connected: {
