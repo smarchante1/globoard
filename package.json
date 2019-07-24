@@ -13,6 +13,7 @@
     "react-native-ble-plx": "^1.0.3",
     "react-native-css-gradient": "^0.3.1",
     "react-native-elements": "^1.1.0",
+    "react-native-progress-bar-animated": "^1.0.6",
     "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {

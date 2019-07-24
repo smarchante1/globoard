@@ -11,6 +11,7 @@ import {
 import Checklist from './components/Checklist'
 import  BluetoothSwitch  from './components/BluetoothSwitch';
 import SplashScreen from './components/SplashScreen';
+
 import {
   Header,
   LearnMoreLinks,
@@ -34,9 +35,6 @@ export default class App extends Component {
   }
 
   render() {
-    // if (this.state.isLoading) {
-    //   return <SplashScreen />;
-    // }
 
     return (
       <Fragment>
