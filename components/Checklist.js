@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, TouchableOpacity, Dimensions, Button } from "react-native";
+import { Platform, StyleSheet, Text, View, TouchableOpacity, Dimensions, Button, Alert } from "react-native";
 import { CheckBox } from 'react-native-elements';
 import ProgressBarAnimated from 'react-native-progress-bar-animated';
 
@@ -37,11 +37,14 @@ export default class Checklist extends Component {
         <Text style={styles.title}>Are You Performance Ready?</Text>
         <Text style={styles.tagline}>Check off the boxes below!</Text>
 
-        <View>
+        <View style={styles.barContainer}> 
           <ProgressBarAnimated
             width={barWidth}
-            value={this.state.progress}
+            value={this.state.progressWithOnComplete}
             backgroundColorOnComplete="#6CC644"
+            onComplete={() => {
+              Alert.alert('100% Preparation!', 'You\'re ready to rock!');
+            }}
           />
         </View>
 
@@ -49,28 +52,35 @@ export default class Checklist extends Component {
             title='Battery levels checked and charged.'
             checked={this.state.checked1}
             onPress={() => this.setState({checked1: !this.state.checked1})}
-            onPress={increase.bind(this, 'progress', 20)}
+            onPress={increase.bind(this, 'progressWithOnComplete', 20)}
           />
 
           <CheckBox
             title='Strings tuned with tuner.' 
             checked={this.state.checked2}
             onPress={() => this.setState({checked2: !this.state.checked2})}
-            onPress={increase.bind(this, 'progress', 20)}
+            onPress={increase.bind(this, 'progressWithOnComplete', 20)}
           />
 
           <CheckBox
             title='Sound test done.' 
             checked={this.state.checked3}
             onPress={() => this.setState({checked3: !this.state.checked3})}
-            onPress={increase.bind(this, 'progress', 20)}
+            onPress={increase.bind(this, 'progressWithOnComplete', 20)}
           />
 
           <CheckBox
             title='Cable wrapped securely inside of strap.' 
             checked={this.state.checked4}
             onPress={() => this.setState({checked4: !this.state.checked4})}
-            onPress={increase.bind(this, 'progress', 20)}
+            onPress={increase.bind(this, 'progressWithOnComplete', 20)}
+          />
+
+          <CheckBox
+            title='Spare picks are easily accessible' 
+            checked={this.state.checked4}
+            onPress={() => this.setState({checked4: !this.state.checked4})}
+            onPress={increase.bind(this, 'progressWithOnComplete', 20)}
           />
       </View> 
     );
@@ -85,6 +95,11 @@ const styles = StyleSheet.create({
 	  marginTop: 50,
     marginLeft: 10,
     marginRight: 10
+  },
+
+  barContainer: {
+    paddingTop: 15,
+    paddingBottom: 10,
   },
 
   title: {
