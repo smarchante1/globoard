@@ -139,6 +139,7 @@ export default class BluetoothSwitch extends Component<Props> {
         <Text style={styles.connected}>Customize Globoard</Text>
         <Text style={styles.tagline}>Select a light style for your fretboard</Text>
         {this.state.buttonClicked && <Text style={styles.notifications}>{this.state.messages}</Text>}
+        
         <View >
           <Button onPress={() => this.writeToDevice("VA==")}>
             LED On
@@ -166,6 +167,7 @@ export default class BluetoothSwitch extends Component<Props> {
           </TouchableOpacity>
           {this.state.showList ? <CheckList /> : null}
         </View>
+        
 	  </View>
     );
   }
@@ -184,7 +186,9 @@ const styles = StyleSheet.create({
   listTrigger: {
     textAlign: 'center',
     fontSize: 18,
-    color: '#BA4AE7'
+    fontWeight: '400',
+    color: '#BA4AE7',
+    padding: 5,
   },
 
   tagline: {

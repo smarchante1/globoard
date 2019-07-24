@@ -6,7 +6,12 @@ export default class Checklist extends Component {
   constructor (){
     super();
     this.state={
-      checkedItems: null
+      checkedItems: null,
+      checked1: false,
+      checked2: false,
+      checked3: false,
+      checked4: false,
+
     }
   }
 
@@ -18,23 +23,26 @@ export default class Checklist extends Component {
         <View>
           <CheckBox
             title='Battery levels checked and charged.'
-            checked={this.state.checked}
-            onPress={() => this.setState({checked: !this.state.checked})}
+            checked={this.state.checked1}
+            onPress={() => this.setState({checked1: !this.state.checked1})}
           />
 
           <CheckBox
             title='Strings tuned with tuner.' 
-            checked={this.state.checked}
+            checked={this.state.checked2}
+            onPress={() => this.setState({checked2: !this.state.checked2})}
           />
 
           <CheckBox
             title='Sound test done.' 
-            checked={this.state.checked}
+            checked={this.state.checked3}
+            onPress={() => this.setState({checked3: !this.state.checked3})}
           />
 
           <CheckBox
             title='Cable wrapped securely inside of strap.' 
-            checked={this.state.checked}
+            checked={this.state.checked4}
+            onPress={() => this.setState({checked4: !this.state.checked4})}
           />
         </View>
       </View> 
