@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Alert, TouchableOpacity, ImageBackground } from "react-native";
+import { Platform, StyleSheet, Text, View, Alert, TouchableOpacity } from "react-native";
 import { BleManager, Device } from "react-native-ble-plx";
 import Button from "./Button.js"
 import CheckList from "./Checklist"
@@ -140,7 +140,7 @@ export default class BluetoothSwitch extends Component<Props> {
         <Text style={styles.tagline}>Select a light style for your fretboard</Text>
         {this.state.buttonClicked && <Text style={styles.notifications}>{this.state.messages}</Text>}
         
-        <View >
+        <View style={styles.buttonContainer}>
           <Button onPress={() => this.writeToDevice("VA==")}>
             LED On
           </Button>
@@ -161,6 +161,8 @@ export default class BluetoothSwitch extends Component<Props> {
             Shimmer
           </Button>
 
+          <View style={styles.separator} />
+
           <TouchableOpacity>
             <Text style={styles.listTrigger} onPress={this.onButtonClick}>
               Performance Check List
@@ -176,6 +178,12 @@ export default class BluetoothSwitch extends Component<Props> {
 }
 
 const styles = StyleSheet.create({
+  buttonContainer: {
+    // flexDirection: 'row',
+    // flexWrap: 'wrap',
+
+  },
+
   container: {
     flexDirection: 'column',
 	  justifyContent: 'space-evenly',
@@ -220,6 +228,12 @@ const styles = StyleSheet.create({
     borderRadius: 3,
     borderWidth: 3,
     borderColor: '#ffffff',
+  },
+
+  separator: {
+    marginVertical: 30,
+    borderWidth: 4,
+    borderColor: '#BA4AE7',
   }
 
 }); 
