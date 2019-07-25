@@ -22,6 +22,10 @@ const styles = {
     marginLeft: 5,
     marginRight: 5,
     marginBottom: 15,
+    shadowColor: '#30b39d',
+    shadowOffset: { height: 2, width: 1 }, 
+    shadowOpacity: 1, 
+    shadowRadius: 4, 
   },
 
   textStyle: {

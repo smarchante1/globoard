@@ -164,6 +164,10 @@ export default class BluetoothSwitch extends Component<Props> {
 
           <View style={styles.separator} />
 
+          <Button onPress={() => this.shimmer("SQ==")}>
+            Audio Visualizer
+          </Button>
+
           <TouchableOpacity>
             <Text style={styles.listTrigger} onPress={this.onButtonClick}>
               Performance Check List
@@ -179,11 +183,6 @@ export default class BluetoothSwitch extends Component<Props> {
 }
 
 const styles = StyleSheet.create({
-  buttonContainer: {
-    // flexDirection: 'row',
-    // flexWrap: 'wrap',
-
-  },
 
   container: {
     flexDirection: 'column',

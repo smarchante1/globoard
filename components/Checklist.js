@@ -29,7 +29,7 @@ export default class Checklist extends Component {
     return(
       <View style={styles.container}>
         <Text style={styles.title}>Are You Performance Ready?</Text>
-        <Text style={styles.tagline}>Check off the boxes below!</Text>
+        <Text style={styles.tagline}>{this.state.progressWithOnComplete}% Ready</Text>
 
         <View style={styles.barContainer}> 
           <ProgressBarAnimated 
@@ -37,7 +37,7 @@ export default class Checklist extends Component {
             value={this.state.progressWithOnComplete}
             backgroundColorOnComplete="#BA4AE7"
             onComplete={() => {
-              Alert.alert('All Prepared!', 'You\'re ready to rock!');
+              Alert.alert('Bam!', 'Let\'s do this!!');
             }}
           />
         </View>
