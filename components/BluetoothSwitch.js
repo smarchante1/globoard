@@ -136,8 +136,9 @@ export default class BluetoothSwitch extends Component<Props> {
 
     return (
       <View style={styles.container}>    
-        <Text style={styles.connected}>Customize Globoard</Text>
-        <Text style={styles.tagline}>Select a light style for your fretboard</Text>
+        <Text style={styles.connected}>globoard</Text>
+        <Text style={styles.tagline}>Make your guitar glo. Pick a setting belo.</Text>
+        
         {this.state.buttonClicked && <Text style={styles.notifications}>{this.state.messages}</Text>}
         
         <View style={styles.buttonContainer}>
@@ -202,16 +203,21 @@ const styles = StyleSheet.create({
   },
 
   tagline: {
+    fontSize: 15,
     textAlign: "center",
-	  paddingBottom: 30, 
+	  paddingBottom: 70, 
     color: '#BA4AE7'
   },
 
   connected: {
+    fontFamily: 'Futura',
     color: '#ffffff',
-    fontSize: 30,
+    fontSize: 60,
     textAlign: "center",
-    margin: 10
+    margin: 10,
+    textShadowOffset: { width: 2, height: 2 },
+    textShadowRadius: 1,
+    textShadowColor: '#30b39d',
   },
   
   button: {
