@@ -1,6 +1,9 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Alert, TouchableOpacity } from "react-native";
+import { Platform, StyleSheet, Text, View, Alert, TouchableOpacity, Modal} from "react-native";
 import { BleManager, Device } from "react-native-ble-plx";
+import { ColorPicker, fromHsv } from 'react-native-color-picker'
+import { convertHexToRgbString } from './Utilities'
+
 import Button from "./Button.js"
 import CheckList from "./Checklist"
 
@@ -16,6 +19,8 @@ export default class BluetoothSwitch extends Component<Props> {
       buttonClicked: false,
       messages: [],
       showList: false,
+      isModalVisible: false,
+      selectedColor: null,
     };
     
     this.onButtonClick = this.onButtonClick.bind(this);
@@ -83,6 +88,31 @@ export default class BluetoothSwitch extends Component<Props> {
         });
       });
     });
+  }
+
+  sendStringToDevice = async data => {
+    try {
+      await this.cha.writewithoutResponse(data)
+      this.setState({
+        selectedColor: null,
+      })
+    } catch (e) {
+      console.log(e)
+    }
+  }
+
+  handleColorChange = color => {
+    const hexColor = fromHsv(color)
+    this.setState({ selectedColor: hexColor })
+    this.setColor(hexColor)
+  }
+
+  setColor = async color => {
+    try {
+      await this.cha.writewithoutResponse(convertHexToRgbString(color))
+    } catch (e) {
+      console.log(e)
+    }
   }
 
   writeToDevice(val) {
@@ -162,12 +192,34 @@ export default class BluetoothSwitch extends Component<Props> {
             Shimmer
           </Button>
 
-          <View style={styles.separator} />
-
-          <Button onPress={() => this.shimmer("SQ==")}>
-            Audio Visualizer
+          <Button onPress={() => this.setState({ isModalVisible: true, })}>
+            Pick a Color
           </Button>
 
+          <Modal
+            animationType="slide"
+            transparent={false}
+            visible={this.state.isModalVisible}
+            onRequestClose={() => {
+              this.setState({
+                isModalVisible: false,
+              })
+            }}
+          >  
+          <Text style={styles.close} onPress={() => this.setState({ isModalVisible: false, })}>
+            Close
+          </Text>
+                <ColorPicker
+                  style={styles.picker}
+                  onColorChange={this.handleColorChange}
+                  color={this.state.selectedColor}
+                />
+    
+          </Modal>
+
+
+          <View style={styles.separator} />
+                  
           <TouchableOpacity>
             <Text style={styles.listTrigger} onPress={this.onButtonClick}>
               Performance Check List
@@ -239,6 +291,19 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     borderWidth: 4,
     borderColor: '#BA4AE7',
-  }
+  },
+
+  picker: {
+    flexDirection: 'column',
+    height: 400
+  },
+
+  close: {
+    flexDirection: 'column',
+	  justifyContent: 'space-evenly',
+    position: 'relative',
+	  marginTop: 50,
+    marginLeft: 10,
+    marginRight: 10  }
 
 }); 
