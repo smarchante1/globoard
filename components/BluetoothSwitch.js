@@ -89,30 +89,30 @@ export default class BluetoothSwitch extends Component<Props> {
       });
     });
   }
-
-  sendStringToDevice = async data => {
-    try {
-      await this.cha.writewithoutResponse(data)
-      this.setState({
-        selectedColor: null,
-      })
-    } catch (e) {
-      console.log(e)
-    }
+ 
+  sendStringToDevice(val) {
+    this.cha.writeWithoutResponse(val).catch(err => {
+      console.log(err);
+    });
+    this.setState({
+      selectedColor: null,
+    })
   }
 
   handleColorChange = color => {
+    console.log(color)
     const hexColor = fromHsv(color)
+    console.log(hexColor)
     this.setState({ selectedColor: hexColor })
     this.setColor(hexColor)
   }
 
-  setColor = async color => {
-    try {
-      await this.cha.writewithoutResponse(convertHexToRgbString(color))
-    } catch (e) {
-      console.log(e)
-    }
+  setColor(color) {
+    console.log(color)
+    this.cha.writeWithoutResponse(convertHexToRgbString(color))
+    .catch(err => {
+      console.log(err);
+    });
   }
 
   writeToDevice(val) {
@@ -192,10 +192,11 @@ export default class BluetoothSwitch extends Component<Props> {
             Shimmer
           </Button>
 
+
           <Button onPress={() => this.setState({ isModalVisible: true, })}>
             Pick a Color
           </Button>
-
+          
           <Modal
             animationType="slide"
             transparent={false}
