@@ -241,6 +241,8 @@ export default class BluetoothSwitch extends Component<Props> {
             >  
             
             <Icon style={styles.close} name="remove" size={30} color="#4AE7CD" onPress={() => this.setState({ isModalVisible: false, })} />
+            
+            <Icon style={styles.lightBulb} name="magic" size={50} color="#BA4AE7" />
 
             <Text style={styles.rgbTagline}>RGB Indicator Color Selector</Text>
 
@@ -438,11 +440,15 @@ const styles = StyleSheet.create({
   },
 
   rgbTagline: {
-    fontFamily: 'Thonburi',
+    // fontFamily: 'Thonburi',
+    fontWeight: 'bold',
     textAlign: 'center',
     paddingTop: 25,
     color: '#BA4AE7',
-    fontSize: 30,
+    fontSize: 25,
+    textShadowOffset: { width: 1, height: 2 },
+    textShadowRadius: 2,
+    textShadowColor: '#570f73',
   },
 
   lightBulb: {

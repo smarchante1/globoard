@@ -63,7 +63,7 @@ const styles = StyleSheet.create({
   },
   body: {
     backgroundColor: '#4AE7CD',
-    height: 1000,
+    height: 1300,
   },
   sectionContainer: {
     marginTop: 32,
