@@ -192,6 +192,37 @@ export default class BluetoothSwitch extends Component<Props> {
 	});
   }
 
+  tealHelper(val){
+   this.cha.writeWithoutResponse(val).catch(err => {
+	  console.log("Could not change color")
+	});
+  }
+
+  greenHelper(val){
+   this.cha.writeWithoutResponse(val).catch(err => {
+	  console.log("Could not change color")
+	});
+  }
+
+  yellowHelper(val){
+   this.cha.writeWithoutResponse(val).catch(err => {
+	  console.log("Could not change color")
+	});
+  }
+
+  orangeHelper(val){
+   this.cha.writeWithoutResponse(val).catch(err => {
+	  console.log("Could not change color")
+	});
+  }
+
+  whiteHelper(val){
+   this.cha.writeWithoutResponse(val).catch(err => {
+	  console.log("Could not change color")
+	});
+  }
+
+
   render() {
     let selectedColor = '#C0392B';
 
@@ -242,22 +273,29 @@ export default class BluetoothSwitch extends Component<Props> {
             Close
           </Text>
           <TouchableOpacity>
-            <Button onPress={() => this.pinkHelper("Tgo=")}>Pink</Button>
+            <Button onPress={() => this.pinkHelper("Tgo=")}>Magenta</Button>
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Text>Blue</Text>
+            <Button onPress={() => this.tealHelper("Rg==")}>Teal</Button>
           </TouchableOpacity>
 
           <TouchableOpacity>
-            <Text>Green</Text>
+            <Button onPress={() => this.greenHelper("WQ==")}>Green</Button>
           </TouchableOpacity>
 
-            <TouchableOpacity style={styles.color} onPress={console.log('I work!')}>
-              <Text>
-                Change Color
-              </Text>
-            </TouchableOpacity>
+          <TouchableOpacity>
+            <Button onPress={() => this.yellowHelper("Rw==")}>Yellow</Button>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Button onPress={() => this.orangeHelper("SAo=")}>Orange</Button>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Button onPress={() => this.whiteHelper("TAo=")}>White</Button>
+          </TouchableOpacity>
+
           </Modal>
 
 
