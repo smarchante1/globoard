@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Platform, StyleSheet, Text, View, Alert, TouchableOpacity, Modal} from "react-native";
 import { BleManager, Device } from "react-native-ble-plx";
-import { ColorPicker, fromHsv } from 'react-native-color-picker'
 import { convertHexToRgbString } from './Utilities'
+import Icon from 'react-native-vector-icons/FontAwesome';
+
 
 import Button from "./Button.js"
 import CheckList from "./Checklist"
@@ -100,20 +101,44 @@ export default class BluetoothSwitch extends Component<Props> {
   }
 
   handleColorChange = color => {
-    console.log(color)
+    // console.log(color)
     const hexColor = fromHsv(color)
-    console.log(hexColor)
+    // console.log(hexColor)
     this.setState({ selectedColor: hexColor })
     this.setColor(hexColor)
   }
 
-  setColor(color) {
-    console.log(color)
-    this.cha.writeWithoutResponse(convertHexToRgbString(color))
-    .catch(err => {
-      console.log(err);
-    });
-  }
+
+
+  // setColor(rawColor) {
+  //   console.log("VVVVVVVVVVVVVVVVV")
+
+  //   const color = rawColor.replace(/^#/, "")
+  //   console.log(color)
+  //   const red = parseInt(color.slice(0,2), 16)
+  //   const green = parseInt(color.slice(2,4), 16)
+  //   const blue = parseInt(color.slice(4,6), 16)
+
+  //   const colorBytes = String.fromCharCode(red, green, blue)
+  //   console.log(colorBytes)
+  //   // const b64color = btoa(color)
+  //   // const b64color = base64.encode(color);
+  //   console.log(red, green, blue)
+  //   console.log("^^^^^^^^^^^^^^^^^^")
+  //   // this.cha.writeWithoutResponse(base64.encode(red))
+  //   // .catch(err => {
+  //   //   console.log(err);
+  //   // });
+  //   // this.cha.writeWithoutResponse(base64.encode(green))
+  //   // .catch(err => {
+  //   //   console.log(err);
+  //   // });
+  //   // this.cha.writeWithoutResponse(base64.encode(blue))
+  //   // .catch(err => {
+  //   //   console.log(err);
+  //   // });
+
+  // }
 
   writeToDevice(val) {
     this.cha.writeWithoutResponse(val).catch(err => {
@@ -161,8 +186,14 @@ export default class BluetoothSwitch extends Component<Props> {
     }));
   }
 
+  pinkHelper(val){
+   this.cha.writeWithoutResponse(val).catch(err => {
+	  console.log("Could not change color")
+	});
+  }
+
   render() {
-    const gradient = `linear-gradient(-225deg, #231557 0%, #44107A 29%, #FF1361 67%, #FFF800 100%), repeating-linear-gradient(-115deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px), repeating-linear-gradient(115deg, transparent, transparent 20px, rgba(255,255,255,0.1) 20px, rgba(255,255,255,0.1) 40px)`;
+    let selectedColor = '#C0392B';
 
     return (
       <View style={styles.container}>    
@@ -210,12 +241,23 @@ export default class BluetoothSwitch extends Component<Props> {
           <Text style={styles.close} onPress={() => this.setState({ isModalVisible: false, })}>
             Close
           </Text>
-                <ColorPicker
-                  style={styles.picker}
-                  onColorChange={this.handleColorChange}
-                  color={this.state.selectedColor}
-                />
-    
+          <TouchableOpacity>
+            <Button onPress={() => this.pinkHelper("Tgo=")}>Pink</Button>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text>Blue</Text>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <Text>Green</Text>
+          </TouchableOpacity>
+
+            <TouchableOpacity style={styles.color} onPress={console.log('I work!')}>
+              <Text>
+                Change Color
+              </Text>
+            </TouchableOpacity>
           </Modal>
 
 
@@ -305,6 +347,12 @@ const styles = StyleSheet.create({
     position: 'relative',
 	  marginTop: 50,
     marginLeft: 10,
-    marginRight: 10  }
+    marginRight: 10  },
+  
+  color: {
+    flexDirection: 'column',
+    paddingBottom: 600,
+    alignItems: 'center'
+  }
 
 }); 
