@@ -272,27 +272,28 @@ export default class BluetoothSwitch extends Component<Props> {
           <Text style={styles.close} onPress={() => this.setState({ isModalVisible: false, })}>
             Close
           </Text>
-          <TouchableOpacity>
+
+          <TouchableOpacity style={styles.pinkButton}>
             <Button onPress={() => this.pinkHelper("Tgo=")}>Magenta</Button>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.tealButton}>
             <Button onPress={() => this.tealHelper("Rg==")}>Teal</Button>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.greenButton}>
             <Button onPress={() => this.greenHelper("WQ==")}>Green</Button>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.yellowButton}>
             <Button onPress={() => this.yellowHelper("Rw==")}>Yellow</Button>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.orangeButton}>
             <Button onPress={() => this.orangeHelper("SAo=")}>Orange</Button>
           </TouchableOpacity>
 
-          <TouchableOpacity>
+          <TouchableOpacity style={styles.whiteButton}>
             <Button onPress={() => this.whiteHelper("TAo=")}>White</Button>
           </TouchableOpacity>
 
@@ -391,6 +392,37 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     paddingBottom: 600,
     alignItems: 'center'
-  }
+  },
+
+  pinkButton: {
+    backgroundColor: '#F059D4',
+    margin: 5,
+  },
+
+  tealButton: {
+    backgroundColor: '#54FFF1',
+    margin: 5,
+  },
+
+  greenButton: {
+    backgroundColor: '#33FF7E',
+    margin: 5,
+  },
+
+  yellowButton: {
+    backgroundColor: '#FFC30F',
+    margin: 5,
+  },
+
+  orangeButton: {
+    backgroundColor: '#FF7512',
+    margin: 5,
+  },
+
+  whiteButton: {
+    backgroundColor: '#FFFFFF',
+    margin: 5,
+  },
+
 
 }); 
