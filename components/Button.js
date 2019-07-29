@@ -21,8 +21,8 @@ const styles = {
     borderColor: '#ffffff',
     marginLeft: 5,
     marginRight: 5,
-    marginBottom: 15,
-
+    marginBottom: 10,
+    marginTop: 10
   },
 
   textStyle: {

@@ -108,38 +108,6 @@ export default class BluetoothSwitch extends Component<Props> {
     this.setColor(hexColor)
   }
 
-
-
-  // setColor(rawColor) {
-  //   console.log("VVVVVVVVVVVVVVVVV")
-
-  //   const color = rawColor.replace(/^#/, "")
-  //   console.log(color)
-  //   const red = parseInt(color.slice(0,2), 16)
-  //   const green = parseInt(color.slice(2,4), 16)
-  //   const blue = parseInt(color.slice(4,6), 16)
-
-  //   const colorBytes = String.fromCharCode(red, green, blue)
-  //   console.log(colorBytes)
-  //   // const b64color = btoa(color)
-  //   // const b64color = base64.encode(color);
-  //   console.log(red, green, blue)
-  //   console.log("^^^^^^^^^^^^^^^^^^")
-  //   // this.cha.writeWithoutResponse(base64.encode(red))
-  //   // .catch(err => {
-  //   //   console.log(err);
-  //   // });
-  //   // this.cha.writeWithoutResponse(base64.encode(green))
-  //   // .catch(err => {
-  //   //   console.log(err);
-  //   // });
-  //   // this.cha.writeWithoutResponse(base64.encode(blue))
-  //   // .catch(err => {
-  //   //   console.log(err);
-  //   // });
-
-  // }
-
   writeToDevice(val) {
     this.cha.writeWithoutResponse(val).catch(err => {
       console.log("Could not write value to Arduino");
@@ -256,10 +224,10 @@ export default class BluetoothSwitch extends Component<Props> {
 
 
           <Button onPress={() => this.setState({ isModalVisible: true, })}>
-            Pick a Color
+            RGB Indicator Color
           </Button>
           
-          <Modal
+          <Modal style={styles.modStyle}
             animationType="slide"
             transparent={false}
             visible={this.state.isModalVisible}
@@ -273,30 +241,33 @@ export default class BluetoothSwitch extends Component<Props> {
             Close
           </Text>
 
-          <TouchableOpacity style={styles.pinkButton}>
-            <Button onPress={() => this.pinkHelper("Tgo=")}>Magenta</Button>
-          </TouchableOpacity>
+          <Text style={styles.rgbTagline}>RGB Indicator Color Selector</Text>
 
-          <TouchableOpacity style={styles.tealButton}>
-            <Button onPress={() => this.tealHelper("Rg==")}>Teal</Button>
-          </TouchableOpacity>
+            <View style={styles.colorButtonContainer}>
+              <TouchableOpacity style={styles.pinkButton}>
+                <Button onPress={() => this.pinkHelper("Tgo=")}>Magenta</Button>
+              </TouchableOpacity>
 
-          <TouchableOpacity style={styles.greenButton}>
-            <Button onPress={() => this.greenHelper("WQ==")}>Green</Button>
-          </TouchableOpacity>
+              <TouchableOpacity style={styles.tealButton}>
+                <Button onPress={() => this.tealHelper("Rg==")}>Teal</Button>
+              </TouchableOpacity>
 
-          <TouchableOpacity style={styles.yellowButton}>
-            <Button onPress={() => this.yellowHelper("Rw==")}>Yellow</Button>
-          </TouchableOpacity>
+              <TouchableOpacity style={styles.greenButton}>
+                <Button onPress={() => this.greenHelper("WQ==")}>Green</Button>
+              </TouchableOpacity>
 
-          <TouchableOpacity style={styles.orangeButton}>
-            <Button onPress={() => this.orangeHelper("SAo=")}>Orange</Button>
-          </TouchableOpacity>
+              <TouchableOpacity style={styles.yellowButton}>
+                <Button onPress={() => this.yellowHelper("Rw==")}>Yellow</Button>
+              </TouchableOpacity>
 
-          <TouchableOpacity style={styles.whiteButton}>
-            <Button onPress={() => this.whiteHelper("TAo=")}>White</Button>
-          </TouchableOpacity>
+              <TouchableOpacity style={styles.orangeButton}>
+                <Button onPress={() => this.orangeHelper("SAo=")}>Orange</Button>
+              </TouchableOpacity>
 
+              <TouchableOpacity style={styles.whiteButton}>
+                <Button onPress={() => this.whiteHelper("TAo=")}>White</Button>
+              </TouchableOpacity>
+            </View>
           </Modal>
 
 
@@ -381,9 +352,11 @@ const styles = StyleSheet.create({
   },
 
   close: {
+    fontSize: 15,
     flexDirection: 'column',
 	  justifyContent: 'space-evenly',
     position: 'relative',
+    paddingTop: 30,
 	  marginTop: 50,
     marginLeft: 10,
     marginRight: 10  },
@@ -395,34 +368,77 @@ const styles = StyleSheet.create({
   },
 
   pinkButton: {
+    borderRadius: 8,
     backgroundColor: '#F059D4',
     margin: 5,
+    shadowColor: '#C21BA3',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 2,
   },
 
   tealButton: {
+    borderRadius: 8,
     backgroundColor: '#54FFF1',
     margin: 5,
+    shadowColor: '#1CD9C9',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 2,
   },
 
   greenButton: {
+    borderRadius: 8,
     backgroundColor: '#33FF7E',
     margin: 5,
+    shadowColor: '#06CF50',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 2,
   },
 
   yellowButton: {
+    borderRadius: 8,
     backgroundColor: '#FFC30F',
     margin: 5,
+    shadowColor: '#BF8F00',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 2,
   },
 
   orangeButton: {
+    borderRadius: 8,
     backgroundColor: '#FF7512',
     margin: 5,
+    shadowColor: '#B84D00',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 2,
   },
 
   whiteButton: {
-    backgroundColor: '#FFFFFF',
+    borderRadius: 8,
+    backgroundColor: '#D9D9D9',
     margin: 5,
+    shadowColor: '#A8A7A7',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.7,
+    shadowRadius: 2,
   },
 
+  colorButtonContainer: {
+    marginTop: 60
+  },
+
+  modStyle: {
+    backgroundColor: '#4AE7CD'
+  },
+
+  rgbTagline: {
+    textAlign: 'center',
+    paddingTop: 25,
+    color: '#BA4AE7'
+  }
 
 }); 
