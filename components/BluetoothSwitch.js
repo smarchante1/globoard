@@ -1,11 +1,11 @@
 import React, { Component } from "react";
-import { Platform, StyleSheet, Text, View, Alert, TouchableOpacity, Modal} from "react-native";
+import { Platform, StyleSheet, Text, View, Alert, TouchableOpacity, Modal, ScrollView} from "react-native";
 import { BleManager, Device } from "react-native-ble-plx";
 import { convertHexToRgbString } from './Utilities'
 import Icon from 'react-native-vector-icons/FontAwesome';
 
-
-import Button from "./Button.js"
+import Button from "./Button"
+import RGBButton from "./RGBButton.js"
 import CheckList from "./Checklist"
 
 type Props = {};
@@ -194,8 +194,10 @@ export default class BluetoothSwitch extends Component<Props> {
   render() {
     let selectedColor = '#C0392B';
 
+
     return (
       <View style={styles.container}>    
+        <Icon style={styles.lightBulb} name="lightbulb-o" size={80} color="#BA4AE7" />
         <Text style={styles.connected}>globoard</Text>
         <Text style={styles.tagline}>Make your guitar glo. Pick a setting belo.</Text>
         
@@ -226,53 +228,54 @@ export default class BluetoothSwitch extends Component<Props> {
           <Button onPress={() => this.setState({ isModalVisible: true, })}>
             RGB Indicator Color
           </Button>
-          
-          <Modal style={styles.modStyle}
-            animationType="slide"
-            transparent={false}
-            visible={this.state.isModalVisible}
-            onRequestClose={() => {
-              this.setState({
-                isModalVisible: false,
-              })
-            }}
-          >  
-          <Text style={styles.close} onPress={() => this.setState({ isModalVisible: false, })}>
-            Close
-          </Text>
+          <ScrollView>
+            <Modal style={styles.modStyle}
+              animationType="slide"
+              transparent={false}
+              visible={this.state.isModalVisible}
+              onRequestClose={() => {
+                this.setState({
+                  isModalVisible: false,
+                })
+              }}
+            >  
+            
+            <Icon style={styles.close} name="remove" size={30} color="#4AE7CD" onPress={() => this.setState({ isModalVisible: false, })} />
 
-          <Text style={styles.rgbTagline}>RGB Indicator Color Selector</Text>
+            <Text style={styles.rgbTagline}>RGB Indicator Color Selector</Text>
 
-            <View style={styles.colorButtonContainer}>
-              <TouchableOpacity style={styles.pinkButton}>
-                <Button onPress={() => this.pinkHelper("Tgo=")}>Magenta</Button>
-              </TouchableOpacity>
+              <View style={styles.colorButtonContainer}>
+                <TouchableOpacity style={styles.pinkButton}>
+                  <RGBButton onPress={() => this.pinkHelper("Tgo=")}>Magenta</RGBButton>
+                </TouchableOpacity>
 
-              <TouchableOpacity style={styles.tealButton}>
-                <Button onPress={() => this.tealHelper("Rg==")}>Teal</Button>
-              </TouchableOpacity>
+                <TouchableOpacity style={styles.tealButton}>
+                  <RGBButton onPress={() => this.tealHelper("Rg==")}>Teal</RGBButton>
+                </TouchableOpacity>
 
-              <TouchableOpacity style={styles.greenButton}>
-                <Button onPress={() => this.greenHelper("WQ==")}>Green</Button>
-              </TouchableOpacity>
+                <TouchableOpacity style={styles.greenButton}>
+                  <RGBButton onPress={() => this.greenHelper("WQ==")}>Green</RGBButton>
+                </TouchableOpacity>
 
-              <TouchableOpacity style={styles.yellowButton}>
-                <Button onPress={() => this.yellowHelper("Rw==")}>Yellow</Button>
-              </TouchableOpacity>
+                <TouchableOpacity style={styles.yellowButton}>
+                  <RGBButton onPress={() => this.yellowHelper("Rw==")}>Yellow</RGBButton>
+                </TouchableOpacity>
 
-              <TouchableOpacity style={styles.orangeButton}>
-                <Button onPress={() => this.orangeHelper("SAo=")}>Orange</Button>
-              </TouchableOpacity>
+                <TouchableOpacity style={styles.orangeButton}>
+                  <RGBButton onPress={() => this.orangeHelper("SAo=")}>Orange</RGBButton>
+                </TouchableOpacity>
 
-              <TouchableOpacity style={styles.whiteButton}>
-                <Button onPress={() => this.whiteHelper("TAo=")}>White</Button>
-              </TouchableOpacity>
-            </View>
-          </Modal>
-
+                <TouchableOpacity style={styles.whiteButton}>
+                  <RGBButton onPress={() => this.whiteHelper("TAo=")}>White</RGBButton>
+                </TouchableOpacity>
+              </View>
+            </Modal>
+          </ScrollView>
 
           <View style={styles.separator} />
-                  
+          
+          <Icon style={styles.lightBulb} name="check-square" size={50} color="#BA4AE7" />
+
           <TouchableOpacity>
             <Text style={styles.listTrigger} onPress={this.onButtonClick}>
               Performance Check List
@@ -342,7 +345,7 @@ const styles = StyleSheet.create({
 
   separator: {
     marginVertical: 30,
-    borderWidth: 4,
+    borderWidth: 3,
     borderColor: '#BA4AE7',
   },
 
@@ -352,12 +355,11 @@ const styles = StyleSheet.create({
   },
 
   close: {
-    fontSize: 15,
     flexDirection: 'column',
 	  justifyContent: 'space-evenly',
     position: 'relative',
     paddingTop: 30,
-	  marginTop: 50,
+	  marginTop: 30,
     marginLeft: 10,
     marginRight: 10  },
   
@@ -436,9 +438,15 @@ const styles = StyleSheet.create({
   },
 
   rgbTagline: {
+    fontFamily: 'Thonburi',
     textAlign: 'center',
     paddingTop: 25,
-    color: '#BA4AE7'
+    color: '#BA4AE7',
+    fontSize: 30,
+  },
+
+  lightBulb: {
+    paddingLeft: 155, 
   }
 
 }); 
