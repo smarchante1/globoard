@@ -59,7 +59,7 @@ Build Configuration > Release
 
 ## Authors
 
-* **Stephanie Marchnate** - *Initial work* - (https://github.com/smarchante1)
+* **Stephanie Marchante** - (https://github.com/smarchante1)
 
 ## License
 
