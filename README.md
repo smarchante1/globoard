@@ -1,6 +1,7 @@
 # Globoard iOS App
 
-Globoard is an iOS companion app to the Arduino powered LED fretboard system it works in tandem with. 
+📣 Globoard is an iOS companion app to the Arduino powered LED fretboard system it works in tandem with. 
+
 ## Getting Started
 
 Below you'll find all the information you need to get the Globoard companion app running on your iOS device.
@@ -10,25 +11,31 @@ Below you'll find all the information you need to get the Globoard companion app
 To get Globoard up and running you'll need to do a little housekeeping. Here are the specs;
 
 ```
-1. React Native
-2. Xcode
-3. React Native BLE PLX Library
+React Native
+```
+```
+Xcode
+```
+```
+React Native BLE PLX Library
 ```
 
-### 🚀Quick Start
+### 🚀 Quick Start
 
 A step by step series of examples that tell you how to get a development env running
 
-Say what the step will be
+1. Install Node and and NPM.
 
 ```
-Give the example
+nvm install node
 ```
-
-And repeat
-
+2. Install dependendencies
 ```
-until finished
+npm install 
+```
+3. Run Development Server
+```
+react-native run-ios
 ```
 
 End with an example of getting some data out of the system or using it for a little demo
