@@ -22,7 +22,7 @@ React Native BLE PLX Library
 
 ### 🏃🏽‍♀️ Quick Start
 
-To quick sttart your development environment
+To quick start your development environment
 
 1. Install Node and and NPM.
 
@@ -53,9 +53,9 @@ Build Configuration > Release
 
 ## Built With
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+* [React Native](https://facebook.github.io/react-native/) - The web framework used
+* [React Native Ble Plx](https://github.com/Polidea/react-native-ble-plx) - Bluetooth Serial Communication Library
+* [XCode](https://developer.apple.com/xcode/) - App Developer
 
 ## Contributing
 
