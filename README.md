@@ -12,10 +12,10 @@ To get Globoard up and running you'll need to do a little housekeeping. Here are
 ```
 1. React Native
 2. Xcode
-3. React Native BLE PLX
+3. React Native BLE PLX Library
 ```
 
-### Installing
+### 🚀Quick Start
 
 A step by step series of examples that tell you how to get a development env running
 
