@@ -20,9 +20,9 @@ Xcode
 React Native BLE PLX Library
 ```
 
-### 🚀 Quick Start
+### 🏃🏽‍♀️ Quick Start
 
-A step by step series of examples that tell you how to get a development env running
+To quick sttart your development environment
 
 1. Install Node and and NPM.
 
@@ -38,31 +38,18 @@ npm install
 react-native run-ios
 ```
 
-End with an example of getting some data out of the system or using it for a little demo
+## 🚀 Deployment
 
-## Running the tests
+When you're ready to deploy live onto an iOS device:
 
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
-
+1. Build the project with XCode
 ```
-Give an example
+Product > Scheme > Edit Scheme
 ```
-
-### And coding style tests
-
-Explain what these tests test and why
-
 ```
-Give an example
+Build Configuration > Release
+- Uncheck Debug executable
 ```
-
-## Deployment
-
-Add additional notes about how to deploy this on a live system
 
 ## Built With
 
