@@ -1,5 +1,7 @@
 # Globoard Product Plan
 
+## How to Install
+
 ## Product Plan Components
 1. __Personal Learning Goals__:  
 -Integrating hardware and software utilizing a single-board microcontroller.  
