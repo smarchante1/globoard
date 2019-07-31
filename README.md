@@ -7,10 +7,12 @@ Below you'll find all the information you need to get the Globoard companion app
 
 ### What you'll need
 
-What things you need to install the software and how to install them
+To get Globoard up and running you'll need to do a little housekeeping. Here are the specs;
 
 ```
-Give examples
+1. React Native
+2. Xcode
+3. React Native BLE PLX
 ```
 
 ### Installing
