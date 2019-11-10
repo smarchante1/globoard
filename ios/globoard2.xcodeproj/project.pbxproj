@@ -14,7 +14,6 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		1854BC9022E82EF3003FC55D /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1854BC8F22E82EF3003FC55D /* Launch Screen.storyboard */; };
-		1854BC9222E82FCD003FC55D /* LaunchImage-828x1792.png in Resources */ = {isa = PBXBuildFile; fileRef = 1854BC9122E82FCD003FC55D /* LaunchImage-828x1792.png */; };
 		188E648322E6BEB300EED933 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 188E648222E6BEB300EED933 /* File.swift */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -62,7 +61,6 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = globoard2/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = globoard2/main.m; sourceTree = "<group>"; };
 		1854BC8F22E82EF3003FC55D /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
-		1854BC9122E82FCD003FC55D /* LaunchImage-828x1792.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "LaunchImage-828x1792.png"; path = "../../../../Desktop/Iconizer Assets/Launch Images/glolaunch.launchimage/LaunchImage-828x1792.png"; sourceTree = "<group>"; };
 		188E648122E6BEB300EED933 /* globoard2-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "globoard2-Bridging-Header.h"; sourceTree = "<group>"; };
 		188E648222E6BEB300EED933 /* File.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = File.swift; sourceTree = "<group>"; };
 		2453772C55C14A07B972A475 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
@@ -194,7 +192,6 @@
 			children = (
 				1854BC8F22E82EF3003FC55D /* Launch Screen.storyboard */,
 				188E648222E6BEB300EED933 /* File.swift */,
-				1854BC9122E82FCD003FC55D /* LaunchImage-828x1792.png */,
 				13B07FAE1A68108700A75B9A /* globoard2 */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* globoard2Tests */,
@@ -361,7 +358,6 @@
 				896C4639A28545CABAE94333 /* Feather.ttf in Resources */,
 				0099C054C63D40F5BB4865A0 /* FontAwesome.ttf in Resources */,
 				F0D652F4B8FE41539DDE95F8 /* FontAwesome5_Brands.ttf in Resources */,
-				1854BC9222E82FCD003FC55D /* LaunchImage-828x1792.png in Resources */,
 				9DE614C427AF4955B47B1DDC /* FontAwesome5_Regular.ttf in Resources */,
 				2F85416279D54DB58BA3CC5C /* FontAwesome5_Solid.ttf in Resources */,
 				8BE17EA289C64C3AB349558A /* Fontisto.ttf in Resources */,
